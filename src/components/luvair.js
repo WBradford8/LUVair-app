@@ -36,7 +36,6 @@ export const LUVair = () => (
           if (localStorage.getItem("luvair_user")) {
             return (
               <>
-                <NavBar />
                 <ApplicationViews />
               </>
             );
