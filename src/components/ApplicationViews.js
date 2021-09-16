@@ -1,13 +1,17 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { LUVair } from "./luvair"
+import { UserProfile } from "./users/UserProfile"
+
 
 
 export const ApplicationViews = () => {
     return (
         <>
-            <Route path="/users">
-                <LUVair />
+            <Route path="/userProfile">
+               <UserProfile /> 
+            </Route>
+            <Route path="/Posts">
+                
             </Route>
         </>
     )
