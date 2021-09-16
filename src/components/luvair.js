@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { NavBar } from "./nav/NavBar";
 
 // export const LUVair = () => {
 //     const [customers, assignCustomers] = useState([])
@@ -36,6 +37,7 @@ export const LUVair = () => (
           if (localStorage.getItem("luvair_user")) {
             return (
               <>
+                <NavBar />
                 <ApplicationViews />
               </>
             );

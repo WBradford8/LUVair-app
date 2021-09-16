@@ -54,7 +54,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Honey Rae Repairs</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for LUVair</h1>
                 <fieldset>
                     <label htmlFor="name"> Full Name </label>
                     <input onChange={updateUser}
@@ -62,8 +62,8 @@ export const Register = (props) => {
                            placeholder="Enter your name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="address"> Address </label>
-                    <input onChange={updateUser} type="text" id="address" className="form-control" placeholder="Street address" required />
+                    <label htmlFor="userImg"> Image Address for Profile Picture </label>
+                    <input onChange={updateUser} type="text" id="userImg" className="form-control" placeholder="Paste Image Address Here" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
