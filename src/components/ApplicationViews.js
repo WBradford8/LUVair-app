@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { UserProfile } from "./users/UserProfile"
+import { TotalHoursForm } from "./users/TotalHoursForm"
 
 
 
@@ -8,8 +9,10 @@ export const ApplicationViews = () => {
     return (
         <>
             <Route path="/userProfile">
-               <UserProfile /> 
+               <UserProfile />
+               <TotalHoursForm /> 
             </Route>
+            
             <Route path="/Posts">
                 
             </Route>
