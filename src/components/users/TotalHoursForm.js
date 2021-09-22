@@ -4,11 +4,10 @@ export const TotalHoursForm = () => {
     
     
     const [flights, setFlights] = useState([])
-    const [setFlight, updateFlight] = useState(
-        {flightId:0}
-    );
+    const [setFlight, updateFlight] = useState(null);
     // const [currentState, updateState] = useState(defaultValue)
     const userId = parseInt(localStorage.getItem("luvair_user"))
+    console.log(setFlight)
     const fetchFlights = () => {
         return fetch("http://localhost:8088/flights")
             .then(res => res.json())
@@ -21,12 +20,13 @@ export const TotalHoursForm = () => {
    
     }, [])
 
+    
     const postFlights = (event) => {
-        // event.preventDefault()
+        console.log(setFlight)
         const newPosts = {
             postTime: Date.now(),
             userId: userId,
-            flightId: setFlight.flightId 
+            flightId: setFlight 
         }
         const fetchOptions = {
             method: "POST",
@@ -39,9 +39,9 @@ export const TotalHoursForm = () => {
     
         return fetch(`http://localhost:8088/posts`, fetchOptions)
             .then(response => response.json())
-            .then(() => {
-               fetchFlights() 
-            })
+            .then( 
+                fetchFlights() 
+            )
     }
 
    
@@ -54,24 +54,22 @@ export const TotalHoursForm = () => {
             
                 onChange={
                         (evt) => {
-                        // updateFlight(parseInt(evt.target.value))
-                        const copy = { ...setFlight };
-                      copy.flightId = parseInt(evt.target.value);
-                      updateFlight(copy);
-                      postFlights()
+                        
+                      
+                      updateFlight(parseInt(evt.target.value));
                             }}>
                 
                  <option value = "0"> Please select a Flight Number</option>
-                {flights.map((flight) => {
+                {flights?.map((flight) => {
                     return <option value={flight.id}> {flight.flightNumber} </option>
                 })}
             </select>
-            {/* <button
+            <button
                 onClick={
-
+                    (evt) => postFlights(evt)
                 }>
                 SUBMIT
-            </button> */}
+            </button>
         </div>
     )
 }
