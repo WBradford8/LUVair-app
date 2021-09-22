@@ -14,14 +14,25 @@ export const UserProfile = () => {
         return fetch(`http://localhost:8088/posts?userId=${userId}&_expand=flight`)
             .then(res => res.json())
             .then((data) => {
-                    for (const flight of data) {
-                        const sumOfHours = totalUserHours + flight.flight.airHours
+                    for (const selectedFlight of data) {
+                        const sumOfHours = totalUserHours + selectedFlight?.flight?.airHours
                         setTotalHours(sumOfHours)
                     }
                  })
                  
     }
 
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/users")
+                .then(res => res.json())
+                .then((userArray) => {
+                        setUser(userArray)
+                     })
+                userHoursFlown()
+        },
+        []
+    )
     useEffect(
         () => {
             fetch("http://localhost:8088/users")
