@@ -13,11 +13,15 @@ export const UserProfile = () => {
     const userHoursFlown = () => {
         return fetch(`http://localhost:8088/posts?userId=${userId}&_expand=flight`)
             .then(res => res.json())
-            .then((data) => {
-                    for (const selectedFlight of data) {
-                        const sumOfHours = totalUserHours + selectedFlight?.flight?.airHours
+            .then((data) => {  
+                 const sumOfHours = data.reduce((sum, currentData) => {
+                     console.log(currentData)
+                    return sum + currentData.flight?.airHours
+                 }, 0
+                 ) 
+                
                         setTotalHours(sumOfHours)
-                    }
+                   
                  })
                  
     }
@@ -40,9 +44,8 @@ export const UserProfile = () => {
                 .then((userArray) => {
                         setUser(userArray)
                      })
-                userHoursFlown()
         },
-        []
+        [totalUserHours]
     )
 
     return (

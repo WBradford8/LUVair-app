@@ -8,11 +8,10 @@ import { TotalHoursForm } from "./users/TotalHoursForm"
 export const ApplicationViews = () => {
     return (
         <>
-            <Route path="/userProfile">
+            <Route exact path="/userProfile">
                <UserProfile />
                <TotalHoursForm /> 
             </Route>
-            
             <Route path="/Posts">
                 
             </Route>
