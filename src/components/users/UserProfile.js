@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { getCurrentUser } from "../APImanager"
 import "./UserProfile.css"
-
+import { TotalHoursForm } from "./TotalHoursForm"
 export const UserProfile = () => {
     const [users, setUser] = useState([])
     const [totalUserHours, setTotalHours] = useState(0)
@@ -60,6 +60,7 @@ export const UserProfile = () => {
                 }
             )
         }
+        <TotalHoursForm userHours={userHoursFlown} />
         </>
     )
 }

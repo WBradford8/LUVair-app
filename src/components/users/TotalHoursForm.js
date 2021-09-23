@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-export const TotalHoursForm = () => {
+export const TotalHoursForm = ({userHours}) => {
     
     
     const [flights, setFlights] = useState([])
@@ -40,7 +40,7 @@ export const TotalHoursForm = () => {
         return fetch(`http://localhost:8088/posts`, fetchOptions)
             .then(response => response.json())
             .then( 
-                fetchFlights() 
+                () => userHours() 
             )
     }
 
