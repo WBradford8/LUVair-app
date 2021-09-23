@@ -5,30 +5,6 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { NavBar } from "./nav/NavBar";
 
-// export const LUVair = () => {
-//     const [customers, assignCustomers] = useState([])
-
-//     useEffect(
-//         () => {
-//             fetch()
-//                 .then(res => res.json())
-//                 .then(
-//                     (customers) => { }
-//                 )
-//         },
-//         []
-//     )
-
-//     return (
-//         <h1>Honey Rae's Repair Shop</h1>
-
-//         {
-//             customers.map(
-//                 () => { }
-//             )
-//         }
-//     )
-// }
 
 export const LUVair = () => (
     <>
