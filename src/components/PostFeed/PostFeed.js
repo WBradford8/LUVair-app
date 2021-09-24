@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react"
+import { getCurrentUser } from "../APImanager"
 import "./PostFeed.css"
 
 export const PostFeed = () => {
     const [posts, setPosts] = useState([])
+    const currentUser = parseInt(getCurrentUser())
+    const deletePost = (id) => {
+        fetch(`http://localhost:8088/posts/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            fetchPosts()
+        })
+         
+    }
     
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts?&_expand=flight&_expand=user`)
+            fetchPosts()
+        },
+        []
+    )
+    const fetchPosts = () => {
+        fetch(`http://localhost:8088/posts?&_expand=flight&_expand=user`)
                 .then(res => res.json())
                 .then((postArray) => {
                   setPosts(postArray)  
                  })
-        },
-        []
-    )
+    }
 
     return (
         <>
@@ -30,6 +44,12 @@ export const PostFeed = () => {
                     <h3>From {postObject.flight?.departureCity} to {postObject.flight?.arrivalCity}</h3>
                     <img src={postObject.user.userImg} />
                     <h4>On {postObject.flight?.flightDate}, for a total of {postObject.flight?.airHours} hours in the air.</h4> <p>Posted on {newDate} @ {newTime}</p>
+                    
+                    {currentUser === postObject.userId ? <button onClick={() => {
+                                deletePost(postObject.id)
+                                    }}>Delete</button>: ""}
+                    
+
                     </div>
                 }
             )

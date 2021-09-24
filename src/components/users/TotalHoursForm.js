@@ -21,7 +21,7 @@ export const TotalHoursForm = ({userHours}) => {
     }, [])
 
     
-    const postFlights = (event) => {
+    const createPost = (event) => {
         console.log(setFlight)
         const newPosts = {
             postTime: Date.now(),
@@ -66,7 +66,7 @@ export const TotalHoursForm = ({userHours}) => {
             </select>
             <button
                 onClick={
-                    (evt) => postFlights(evt)
+                    (evt) => createPost(evt)
                 }>
                 SUBMIT
             </button>
