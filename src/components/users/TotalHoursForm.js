@@ -5,6 +5,7 @@ export const TotalHoursForm = ({userHours}) => {
     
     const [flights, setFlights] = useState([])
     const [setFlight, updateFlight] = useState(null);
+    const [summary, setSummary] = useState("")
     // const [currentState, updateState] = useState(defaultValue)
     const userId = parseInt(localStorage.getItem("luvair_user"))
     console.log(setFlight)
@@ -22,11 +23,11 @@ export const TotalHoursForm = ({userHours}) => {
 
     
     const createPost = (event) => {
-        console.log(setFlight)
         const newPosts = {
             postTime: Date.now(),
             userId: userId,
-            flightId: setFlight 
+            flightId: setFlight,
+            summary: summary   
         }
         const fetchOptions = {
             method: "POST",
@@ -64,6 +65,16 @@ export const TotalHoursForm = ({userHours}) => {
                     return <option value={flight.id}> {flight.flightNumber} </option>
                 })}
             </select>
+            <form
+               onChange={
+                (evt) => {
+                
+              
+              setSummary(evt.target.value);
+                    }} 
+                >
+                <input type="text" id="summary" size="90" placeholder="Thoughts and comments on the flight... i.e. introspective thoughts or 'the first officer was a smoke show'"/> 
+            </form>
             <button
                 onClick={
                     (evt) => createPost(evt)
