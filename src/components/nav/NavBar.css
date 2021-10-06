@@ -1,10 +1,38 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: space-around;
+}
+
+img { max-width: 60%;
+     width: 7rem; 
+     /* margin-top: 25px; */
+     margin-left: 25px;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
 }
+
+.wholeNavBar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    background-color: #B4C5E4;
+    border-bottom: 0.15em solid black;
+}
+
+li a { 
+    text-decoration: none;
+    color: black
+    
+}
+
+.logout {
+    align-self: flex-end;
+}
+
+/* .navbar,li {
+    border-right: 0.5em solid black;
+} */

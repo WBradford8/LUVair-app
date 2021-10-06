@@ -1,15 +1,26 @@
-.postedFlight {
-    /* display: flex; 
+.postFlightContainer {
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     flex-direction: column;
-    align-items: flex-start; */
+}
+.headerContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    
+}
+.postedFlight {
+    flex-basis: 30%;
     border-style: solid;
-    margin: 1em;
+    border-radius: 2.5%;
+    margin: 1em 25%;
+    align-self: center;
+    padding: 1em;
+    background-color: #b4c5e48c;
 }
 
 .postedFlightChildren {
-    /* display: flex;
-    justify-content: center;
-    align-items: flex-start; */
+    align-self: center;
     margin: 1em;
 }
